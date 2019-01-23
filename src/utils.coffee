@@ -1,4 +1,4 @@
-_ = require "underscore"
+OB_ = require "underscore"
 Fuse = require "fuse.js"
 fetch = require "node-fetch"
 cache = require "memory-cache"
@@ -59,7 +59,7 @@ class Utils
 
   @lookupUserWithJira: (jira, fallback=no) ->
     users = Utils.JiraBot.adapter.getUsers()
-    result = (users[user] for user of users when users[user].profile.email is jira.emailAddress) if jira
+    result = (users[user] for user of users when users[user].profile? and users[user].profile.email is jira.emailAddress) if jira
     if result?.length is 1
       return if fallback then result[0].name else "<@#{result[0].id}>"
     else if jira
