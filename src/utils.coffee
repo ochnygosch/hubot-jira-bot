@@ -1,4 +1,4 @@
-OB_ = require "underscore"
+_ = require "underscore"
 Fuse = require "fuse.js"
 fetch = require "node-fetch"
 cache = require "memory-cache"
